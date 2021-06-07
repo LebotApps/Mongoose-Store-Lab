@@ -1,4 +1,5 @@
 // Requiring our dependencies 
+
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema; //schema class
 

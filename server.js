@@ -1,5 +1,5 @@
 //Dependencies
-
+require("dotenv").config()
 const express = require ('express');
 const mongoose = require ('mongoose');
 
@@ -21,13 +21,13 @@ app.use(express.urlencoded({extended:false}));
 
 //Configure Mongoose 
 
-const DATABASE_URL = 'mongodb+srv://admin:abc1234@products.jnypw.mongodb.net/mongoosestore?retryWrites=true&w=majority';
+// const DATABASE_URL = MONGODB_URI;
 
-const db = mongoose.connection;
+// const db = mongoose.connection;
 
-//GET INFOR FOR MONGOOSE CONNECT
+//GET INFO FOR MONGOOSE CONNECT
 
-mongoose.connect(DATABASE_URL, {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
@@ -35,10 +35,10 @@ mongoose.connect(DATABASE_URL, {
 });
 
 //listen for mongodb events
-db.on('error', (error)=>
-    console.log(error.message + ' is mongodb not running?'));
-db.on('connected', ()=> console.log('mongodb connected'));
-db.on('disconnected', ()=> console.log('mongodb disconnected'));
+// db.on('error', (error)=>
+//     console.log(error.message + ' is mongodb not running?'));
+// db.on('connected', ()=> console.log('mongodb connected'));
+// db.on('disconnected', ()=> console.log('mongodb disconnected'));
 
 //Set routes and controller code 
 //INDUCES
