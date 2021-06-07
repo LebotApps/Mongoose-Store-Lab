@@ -21,7 +21,7 @@ app.use(express.urlencoded({extended:false}));
 
 //Configure Mongoose 
 
-const DATABASE_URL = 'mongodb+srv://admin:abc1234@products.jnypw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
+const DATABASE_URL = 'mongodb+srv://admin:abc1234@products.jnypw.mongodb.net/mongoosestore?retryWrites=true&w=majority';
 
 const db = mongoose.connection;
 
@@ -49,6 +49,12 @@ app.get('/products', (req, res) => {
     Product.find({}, (error, foundProducts) => {
         res.send(foundProducts);
     });
+});
+
+app.post('/products', (req, res) => {
+	Product.create(req.body, (error, createdProduct) => {
+		res.send(createdProduct);
+	});
 });
 
 //Tell Express To Listen
