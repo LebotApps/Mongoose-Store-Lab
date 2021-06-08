@@ -1,5 +1,5 @@
 //Dependencies
-require("dotenv").config()
+
 const express = require ('express');
 const mongoose = require ('mongoose');
 
@@ -21,13 +21,13 @@ app.use(express.urlencoded({extended:false}));
 
 //Configure Mongoose 
 
-// const DATABASE_URL = MONGODB_URI;
+const DATABASE_URL = 'mongodb+srv://admin:abc1234@products.jnypw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority';
 
-// const db = mongoose.connection;
+const db = mongoose.connection;
 
-//GET INFO FOR MONGOOSE CONNECT & Protecting Password
+//GET INFOR FOR MONGOOSE CONNECT
 
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect(DATABASE_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
@@ -35,10 +35,10 @@ mongoose.connect(process.env.MONGODB_URI, {
 });
 
 //listen for mongodb events
-// db.on('error', (error)=>
-//     console.log(error.message + ' is mongodb not running?'));
-// db.on('connected', ()=> console.log('mongodb connected'));
-// db.on('disconnected', ()=> console.log('mongodb disconnected'));
+db.on('error', (error)=>
+    console.log(error.message + ' is mongodb not running?'));
+db.on('connected', ()=> console.log('mongodb connected'));
+db.on('disconnected', ()=> console.log('mongodb disconnected'));
 
 //Set routes and controller code 
 //INDUCES
@@ -46,16 +46,13 @@ mongoose.connect(process.env.MONGODB_URI, {
 // Index (Read Route)
 
 app.get('/products', (req, res) => {
-    Product.find({}, (error, foundProducts) => {
-        res.send(foundProducts);
+    Product.find({}, (error, allProduct) =>{
+        res.render('index.ejs', {
+            Product: allProduct,
+        });
+
     });
 });
 
-app.post('/products', (req, res) => {
-	Product.create(req.body, (error, createdProduct) => {
-		res.send(createdProduct);
-	});
-});
-
 //Tell Express To Listen
-app.listen(process.env.PORT, () => console.log(`express is listening on port ${process.env.PORT}`));
+app.listen(PORT, () => console.log(`express is listening on port ${PORT}`)); 
