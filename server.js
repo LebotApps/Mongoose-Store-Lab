@@ -58,4 +58,4 @@ app.post('/products', (req, res) => {
 });
 
 //Tell Express To Listen
-app.listen(PORT, () => console.log(`express is listening on port ${PORT}`));
+app.listen(process.env.PORT, () => console.log(`express is listening on port ${process.env.PORT}`));
