@@ -25,7 +25,7 @@ app.use(express.urlencoded({extended:false}));
 
 // const db = mongoose.connection;
 
-//GET INFO FOR MONGOOSE CONNECT
+//GET INFO FOR MONGOOSE CONNECT & Protecting Password
 
 mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
