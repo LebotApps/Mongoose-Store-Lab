@@ -7,10 +7,12 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 const Product = require('./models/products.js');
 const Seed = require('./models/productSeed.js');
+const methodOverride = require('method-override');
 
 //Middleware
+app.use(methodOverride('_method'));
 //Body parser middleware: give us access to req.body
-app.use(express.urlencoded({ extended:true}));
+app.use(express.urlencoded({ extended:false}));
 
 //Database Connection
 
