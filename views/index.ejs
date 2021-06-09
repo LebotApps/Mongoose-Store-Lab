@@ -9,18 +9,19 @@
 	<body>
         <body>
            <nav>
-               <a href="/products/new">Add New Product</a>
+               <a href="/products/new">Add a Product</a>
                </nav>
            </nav>
             <h1>Products Index Page</h1>
             <ul>
                 <% Product.forEach(Product => { %>
                     <li>
-                        <a href="/products/<%=Product._id; %>"> <%=Product.name; %> </a>
+                        <a href="products/<%=Product._id; %>"> 
+                            
+                            <%=Product.name; %> </a>
                     </li>
                 
                 <% }) %>
             </ul>
-        </body>
 	</body>
 </html>
