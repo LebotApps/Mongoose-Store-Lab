@@ -54,5 +54,23 @@ app.get('/products', (req, res) => {
     });
 });
 
+//NEW
+
+app.get('/products/new', (reg, res)=>{
+   
+        res.render('new.ejs');
+    });
+
+
+//DELETE
+
+//UPDATE
+
+//CREATE
+
+//EDIT
+
+//SHOW
+
 //Tell Express To Listen
 app.listen(PORT, () => console.log(`express is listening on port ${PORT}`)); 
