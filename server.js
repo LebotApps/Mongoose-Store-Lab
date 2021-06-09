@@ -85,7 +85,7 @@ app.post('/products', (req, res) => {
 
 app.get('/products/:id', (req, res) =>{
     Product.findById(req.params.id, (err, foundProduct) =>{
-        res.render('show.ejs', {log: foundProduct});
+        res.render('show.ejs', {Product: foundProduct});
     });
 });
 

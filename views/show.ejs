@@ -4,19 +4,16 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Product List</title>
+		<title>Show Product</title>
 	</head>
 	<body>
-        <body>
-            <nav>
-                <a href="/products">Back to Products Index</a>
-            </nav>
-            <h1>Can't Add Product</h1>
-                    <p>I tried to add using product dot, with squid but received errors.</p>    
-                      
-                </li>
-            
-           
-        </ul>
-</body>
+		<nav>
+			<a href="/products">Back to Books Index</a>
+		</nav>
+		<h1><%=Product.name %></h1>
+        <img src=<%= Product.img %>/>
+		Price: <%= Product.price%>
+		<br />
+		
+	</body>
 </html>
