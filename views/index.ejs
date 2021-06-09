@@ -6,26 +6,26 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Product List</title>
 	</head>
-	<body>
+	<body style="background-color:RGB(81, 125, 236) ;">
         <body>
            <nav>
-               <a href="/products/new">Add a Product</a>
+               <a href="/products/new">Add a new Product</a>
                </nav>
            </nav>
-            <h1>Products Index Page</h1>
+            <h1>SHOP</h1>
             <ul>
                 <% Product.forEach(Product => { %>
                     <li>
                         <a href="products/<%=Product._id; %>"> 
                             
-                            <%=Product.name; %> </a>
-                            <%=Product.description; %> </a>
-                            <%=Product.image; %> </a>
+                            <h3><%=Product.name; %></h3> 
+                            <img src=<%= Product.img %>/>
                             <%=Product.price; %> </a>
-                            <%=Product.qty; %> </a>
+                            
                     </li>
                 
                 <% }) %>
+               
             </ul>
 	</body>
 </html>

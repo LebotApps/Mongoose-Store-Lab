@@ -8,7 +8,7 @@ module.exports =[{
     }, {
       name: 'Bones',
       description: 'It\'s just a bag of bones.',
-      img: 'https://imgur.com/dalOqwk.png',
+      img: '//imgur.com/dalOqwk.png',
       price: 25,
       qty: 0
     }, {

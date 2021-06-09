@@ -67,30 +67,19 @@ app.delete('/products/:indexOfProductsArray', (req, res) =>{
 
 app.put('/products/:indexOfProductsArray', (req, res) => { 
     
-    req.body.readyToEat = req.body.readyToEat ? true : false;
-    // req.body.readyToEat = !!req.body.readyToEat;
-    //   req.body.readyToEat = true;
-    // } else { 
-    //   req.body.readyToEat = false;
-    // }
+    
     Product[req.params.indexOfProductsArray] = req.body; 
     res.redirect('/products'); 
   });
 
 //Create
 app.post('/products', (req, res) => {
-    if(req.body.completed === 'on') {
-        //if checked, req.body.completed is set to 'on'
-        req.body.completed = true;
-    } else {
-        //if not checked, req.body.completed is undefined
-        req.body.completed = false;
-    }
+
     Product.create(req.body, (error, createdProduct)=>{
         res.redirect('/products');
     });
 });
-//Edit
+
 
 //Show
 
