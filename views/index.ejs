@@ -6,26 +6,30 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Product List</title>
 	</head>
-	<body style="background-color:RGB(81, 125, 236) ;">
+	<body style="background-color: RGB(81,125,236);">
         <body>
            <nav>
-               <a href="/products/new">Add a new Product</a>
+               <a href="/products/new">Add a New Product</a>
                </nav>
            </nav>
-            <h1>SHOP</h1>
+            <h1>Shop</h1>
             <ul>
                 <% Product.forEach(Product => { %>
                     <li>
                         <a href="products/<%=Product._id; %>"> 
                             
+                            
                             <h3><%=Product.name; %></h3> 
                             <img src=<%= Product.img %>/>
                             <%=Product.price; %> </a>
-                            
+
+                        
+                            <input type="submit" value="DELETE"/>
+                        </form>
+                        <a href="/products/<%=Product._id %>/edit">Edit</a> 
                     </li>
-                
                 <% }) %>
-               
             </ul>
+        </body>
 	</body>
 </html>

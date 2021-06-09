@@ -58,19 +58,17 @@ app.get('/products/new', (req, res)=>{
 })
 // DELETE route 
 
-app.delete('/products/:indexOfProductsArray', (req, res) =>{
-    Product.splice(req.params.indexOfProductsArray, 1);
-    res.redirect('/products');
-  })
+app.delete('/products/:id', (req, res) => {
+    Product.findByIdAndRemove(req.params.id, (err, data) => {
+        res.redirect('/products');
+    });
+});
 
 //Update
 
-app.put('/products/:indexOfProductsArray', (req, res) => { 
-    
-    
-    Product[req.params.indexOfProductsArray] = req.body; 
-    res.redirect('/products'); 
-  });
+app.put('/products/:id', (req, res) => {
+res.send(req.body);
+});
 
 //Create
 app.post('/products', (req, res) => {
@@ -80,6 +78,17 @@ app.post('/products', (req, res) => {
     });
 });
 
+// Edit
+app.get('/products/:id/edit', (req, res) => {
+	Product.findById(req.params.id, (err, foundProduct) => {
+		res.render(
+    		'edit.ejs',
+    		{
+    			Product: foundProduct //pass in found fruit
+    		}
+    	);
+    });
+});
 
 //Show
 
