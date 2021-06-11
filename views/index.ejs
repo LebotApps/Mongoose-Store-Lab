@@ -14,19 +14,30 @@
 
         <div class="showContainer">
 
-        <% Product.forEach(Product => { %>
+                <% Product.forEach(Product => { %>
 
-        <a href="/products/<%=Product._id; %>">
+                <a href="/products/<%=Product._id; %>">
 
-                <div class="showContainer">
-                <h3><%=Product.name; %></h3> <br>
-                <img src=<%= Product.img %> /> <br>
-                <%=Product.price; %>
-        </a>
 
-        <% }) %>
+                        <div class="showContainer">
 
-</div>
+                                <div class="name">
+                                <h3 class="proName"><%=Product.name; %></h3> <br>
+                        </div>
+
+                        <div class="image">
+                                <img src=<%= Product.img %> /> <br>
+                        </div>
+                                <div class="price">
+                                <h3 class="proName"><%=Product.price; %> </h3><br>
+                        </div>
+
+                        
+                </a>
+
+                <% }) %>
+
+        </div>
 </body>
 
 </html>
