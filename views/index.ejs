@@ -12,23 +12,26 @@
 
         <h1>Shop</h1>
 
+        <div class="showContainer">
+
         <% Product.forEach(Product => { %>
 
-        <a href="products/<%=Product._id; %>">
+        <a href="/products/<%=Product._id; %>">
 
-
-                <h3><%=Product.name; %></h3>
-                <img src=<%= Product.img %> />
+                <div class="showContainer">
+                <h3><%=Product.name; %></h3> <br>
+                <img src=<%= Product.img %> /> <br>
                 <%=Product.price; %>
         </a>
 
-        <form action="/products/<%=Product.id %>?_method=DELETE" method="POST">
+        </div>
+       
 
-                <input type="submit" value="DELETE" />
-        </form>
-        <a href="/products/<%=Product._id %>/edit">Edit</a>
+        </body>
+                  
 
         <% }) %>
+
 
 </body>
 </body>
