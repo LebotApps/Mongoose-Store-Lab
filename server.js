@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const Product = require('./models/products.js');
 const Seed = require('./models/productSeed.js');
 const methodOverride = require('method-override');
+const productSeed = require('./models/productSeed.js');
 
 //Middleware
 app.use(methodOverride('_method'));
@@ -82,13 +83,14 @@ app.post('/products', (req, res) => {
 
 // Edit
 app.get('/products/:id/edit', (req, res) => {
-	Product.findById(req.params.id, (err, foundProduct) => {
-		res.render(
-    		'edit.ejs',
-    		{
-    			Product: foundProduct //pass in found fruit
-    		}
-    	);
+    
+    Product.findById(req.params.id, (err, foundProduct) => {
+        res.render(
+            'edit.ejs',
+            {
+                Product: foundProduct 
+            }
+        );
     });
 });
 

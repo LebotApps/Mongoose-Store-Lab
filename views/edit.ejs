@@ -3,12 +3,15 @@
 	<%- include(`./partials/head.ejs`);%>
 	<title>Edit Product</title>
 	<body>
+		<% console.log(Product) %>
 		<h1>Edit Product Page</h1>
-		<form action="/products/<%=Product._id%>?_method=PUT" method="POST">
-			<h3><%=Product.name; %></h3> 
-            <img src=<%= Product.img %>/>
-            <%=Product.price; %> </a>
+		<form action="/products/">			
+			Name: <input type="text" name="name" value="<%=Product.name %>" /> </br>
+			Description: <input type="text" name="description" value="<%=Product.description %>"/> </br >
+			Image: <input type="text" name="img" value="<%=Product.img %>"/><br />
+			Price: <input type="text" name="price" value="<%=Product.price %>"/><br />
+			Quantity: <input type="text" name="qty" value="<%=Product.qty %>" /><br />
 			<input type="submit" name="" value="Edit Product" />
 		</form>
 	</body>
-	</html>
+</html>
