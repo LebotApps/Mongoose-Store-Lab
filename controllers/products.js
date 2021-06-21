@@ -5,9 +5,6 @@ const productsRouter = express.Router();
 const Product = require('../models/products.js');
 const Seed = require('../models/productSeed.js');
 
-//export functionality
-
-
 // Seed
 
 const productSeed = require('../models/productSeed.js');

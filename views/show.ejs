@@ -10,7 +10,8 @@
 		</nav>
 		
 		<h1><%=Product.name %></h1>
-        <img src=<%= Product.img %>/>
+		<img src= <%= Product.img %> class="image"><br>
+		<%=Product.description %> <br>
 		Price: <%= Product.price%>
 		<br />
         <input type="submit" name="" value="Buy" />
